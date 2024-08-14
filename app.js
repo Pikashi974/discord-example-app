@@ -44,14 +44,14 @@ app.post(
     if (type === InteractionType.APPLICATION_COMMAND) {
       const { name } = data;
 
-      // "test" command
-      if (name === "test") {
+      // "hello" command
+      if (name === "hello") {
         // Send a message into the channel where command was triggered from
         return res.send({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             // Fetches a random emoji to send from a helper function
-            content: `It's going to be alright, Relurcigamgnik  ${getRandomEmoji()}`, //https://i.kym-cdn.com/photos/images/newsfeed/002/477/529/b46.gif
+            content: `He-Hello ${req.body.member.user.username}`, //https://i.kym-cdn.com/photos/images/newsfeed/002/477/529/b46.gif
           },
         });
       }
