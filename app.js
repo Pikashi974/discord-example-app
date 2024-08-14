@@ -51,7 +51,7 @@ app.post(
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             // Fetches a random emoji to send from a helper function
-            content: `He-Hello ${req.body.member.user.username}`, //https://i.kym-cdn.com/photos/images/newsfeed/002/477/529/b46.gif
+            content: `He-Hello ${req.body.member.user.global_name}`, //https://i.kym-cdn.com/photos/images/newsfeed/002/477/529/b46.gif
           },
         });
       }
