@@ -42,7 +42,19 @@ const BWAA_COMMAND = {
   integration_types: [0, 1],
   contexts: [0, 1, 2],
 };
+const ROCK_COMMAND = {
+  name: "rock",
+  description: "Bocchi becomes the most solid of rocks",
+  type: 1,
+  integration_types: [0, 1],
+  contexts: [0, 1, 2],
+};
 
-const ALL_COMMANDS = [hello_COMMAND, WIGGLE_COMMAND, BWAA_COMMAND];
+const ALL_COMMANDS = [
+  hello_COMMAND,
+  WIGGLE_COMMAND,
+  BWAA_COMMAND,
+  ROCK_COMMAND,
+];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);
