@@ -67,6 +67,17 @@ app.post(
           },
         });
       }
+      // "wiggle" command
+      if (name === "bwaa") {
+        // Send a message into the channel where command was triggered from
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            // Fetches a random emoji to send from a helper function
+            content: `https://github.com/Pikashi974/discord-example-app/blob/main/assets/BocchiBwaa.webp?raw=true`, //https://i.kym-cdn.com/photos/images/newsfeed/002/477/529/b46.gif
+          },
+        });
+      }
       console.error(`unknown command: ${name}`);
       return res.status(400).json({ error: "unknown command" });
     }

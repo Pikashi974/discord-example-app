@@ -35,6 +35,14 @@ const WIGGLE_COMMAND = {
   contexts: [0, 1, 2],
 };
 
-const ALL_COMMANDS = [hello_COMMAND, WIGGLE_COMMAND];
+const BWAA_COMMAND = {
+  name: "bwaa",
+  description: "bwaa",
+  type: 1,
+  integration_types: [0, 1],
+  contexts: [0, 1, 2],
+};
+
+const ALL_COMMANDS = [hello_COMMAND, WIGGLE_COMMAND, BWAA_COMMAND];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);
