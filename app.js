@@ -63,7 +63,7 @@ app.post(
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             // Fetches a random emoji to send from a helper function
-            content: `https://cdn.discordapp.com/attachments/1181435156473585664/1272920199724798026/BocchiWiggle.gif`, //https://i.kym-cdn.com/photos/images/newsfeed/002/477/529/b46.gif
+            content: `https://github.com/Pikashi974/discord-example-app/blob/main/assets/BocchiWiggle.gif?raw=true`, //https://i.kym-cdn.com/photos/images/newsfeed/002/477/529/b46.gif
           },
         });
       }
