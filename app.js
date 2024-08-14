@@ -84,7 +84,7 @@ app.post(
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             // Fetches a random emoji to send from a helper function
-            content: `https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi the Nibiru.gif?raw=true`, //https://i.kym-cdn.com/photos/images/newsfeed/002/477/529/b46.gif
+            content: `https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi_the_Nibiru.gif?raw=true`, //https://i.kym-cdn.com/photos/images/newsfeed/002/477/529/b46.gif
           },
         });
       }
