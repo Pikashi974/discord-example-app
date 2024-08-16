@@ -49,12 +49,20 @@ const ROCK_COMMAND = {
   integration_types: [0, 1],
   contexts: [0, 1, 2],
 };
+const LORE_COMMAND = {
+  name: "lore",
+  description: "Anything you need to know about the server",
+  type: 1,
+  integration_types: [0, 1],
+  contexts: [0, 1, 2],
+};
 
 const ALL_COMMANDS = [
   hello_COMMAND,
   WIGGLE_COMMAND,
   BWAA_COMMAND,
   ROCK_COMMAND,
+  LORE_COMMAND,
 ];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);

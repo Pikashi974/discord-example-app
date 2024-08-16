@@ -88,6 +88,14 @@ app.post(
           },
         });
       }
+      if (name === "lore") {
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: `[Lore of the server](https://www.youtube.com/watch?v=_QCUnWAzJ3g)`,
+          },
+        });
+      }
       console.error(`unknown command: ${name}`);
       return res.status(400).json({ error: "unknown command" });
     }
