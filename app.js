@@ -30,10 +30,8 @@ bot.on("messageCreate", (message) => {
       )
       .catch(console.error);
   } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
-    const emoji = bot.emojis.cache.get("1305918424563585054");
-
     message.channel
-      .send("This is a reply! " + emoji)
+      .send("This is a reply! ")
       // .then(() => console.log("test"))
       .catch(console.error);
   }
