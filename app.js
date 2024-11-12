@@ -20,9 +20,8 @@ const bot = new Client({
   ],
 });
 
-bot.on("messageCreate", (message) => {
+bot.on("messageCreate", async (message) => {
   if (message.author.bot) return;
-  console.log(bot.emojis.cache);
   if (message.content.match(/[wW][iI][gG][gG][lL][eE]/gm) != null) {
     message.channel
       .send(
@@ -30,8 +29,27 @@ bot.on("messageCreate", (message) => {
       )
       .catch(console.error);
   } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
+    let obj = await fetch(
+      `https://discord.com/api/v10/applications/${process.env.APP_ID}/emojis`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
+          "Content-Type": "application/json; charset=UTF-8",
+          "User-Agent":
+            "DiscordBot (https://github.com/discord/discord-example-app, 1.0.0)",
+        },
+      }
+    ).then((res) => res.json());
+
+    let randomEmote = obj.items[Math.floor(obj.items.length * Math.random())];
+
     message.channel
-      .send("This is a reply! ")
+      .send(
+        `<${randomEmote.animated == true ? "a" : ""}:${randomEmote.name}:${
+          randomEmote.id
+        }>`
+      )
       // .then(() => console.log("test"))
       .catch(console.error);
   }
