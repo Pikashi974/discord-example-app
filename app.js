@@ -11,6 +11,44 @@ import {
 import { getRandomEmoji, DiscordRequest } from "./utils.js";
 import { getShuffledOptions, getResult } from "./game.js";
 
+import { Client, Events, GatewayIntentBits } from "discord.js";
+const bot = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
+});
+
+bot.on("messageCreate", (message) => {
+  if (message.author.bot) return;
+  console.log(bot.emojis.cache);
+  if (message.content.match(/[wW][iI][gG][gG][lL][eE]/gm) != null) {
+    message.channel
+      .send(
+        "https://github.com/Pikashi974/discord-example-app/blob/main/assets/BocchiWiggle.gif?raw=true"
+      )
+      .catch(console.error);
+  } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
+    const emoji = bot.emojis.cache.get("1305918424563585054");
+
+    message.channel
+      .send("This is a reply! " + emoji)
+      // .then(() => console.log("test"))
+      .catch(console.error);
+  }
+});
+
+// When the client is ready, run this code (only once).
+// The distinction between `client: Client<boolean>` and `readyClient: Client<true>` is important for TypeScript developers.
+// It makes some properties non-nullable.
+bot.once(Events.ClientReady, (readyClient) => {
+  console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+});
+
+// Log in to Discord with your client's token
+bot.login(process.env.DISCORD_TOKEN);
+
 // Create an express app
 const app = express();
 // Get port, or default to 3000
@@ -183,6 +221,8 @@ app.post(
         }
       }
     }
+
+    // console.log(req.body);
 
     console.error("unknown interaction type", type);
     return res.status(400).json({ error: "unknown interaction type" });
