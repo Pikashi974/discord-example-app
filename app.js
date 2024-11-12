@@ -8,7 +8,12 @@ import {
   ButtonStyleTypes,
   verifyKeyMiddleware,
 } from "discord-interactions";
-import { getRandomEmoji, DiscordRequest } from "./utils.js";
+import {
+  getRandomEmoji,
+  DiscordRequest,
+  getEmojis,
+  fiveBocchis,
+} from "./utils.js";
 import { getShuffledOptions, getResult } from "./game.js";
 
 import { Client, Events, GatewayIntentBits } from "discord.js";
@@ -23,59 +28,63 @@ const bot = new Client({
 bot.on("messageCreate", async (message) => {
   if (message.author.bot) return;
   if (message.content.match(/[wW][iI][gG][gG][lL][eE]/gm) != null) {
-    message.channel
-      .send(
-        "https://github.com/Pikashi974/discord-example-app/blob/main/assets/BocchiWiggle.gif?raw=true"
-      )
-      .catch(console.error);
+    if (!fiveBocchis()) {
+      message.channel
+        .send(
+          "https://github.com/Pikashi974/discord-example-app/blob/main/assets/BocchiWiggle.gif?raw=true"
+        )
+        .catch(console.error);
+    } else {
+      message.channel
+        .send(
+          "https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi_the_Nibiru.gif?raw=true"
+        )
+        .catch(console.error);
+    }
   } else if (message.content.match(/[bB][wW][aA][aA]/gm) != null) {
-    let obj = await fetch(
-      `https://discord.com/api/v10/applications/${process.env.APP_ID}/emojis`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
-          "Content-Type": "application/json; charset=UTF-8",
-          "User-Agent":
-            "DiscordBot (https://github.com/discord/discord-example-app, 1.0.0)",
-        },
-      }
-    ).then((res) => res.json());
+    if (!fiveBocchis()) {
+      let obj = await getEmojis();
 
-    let bwaaEmote = obj.items.find((element) => element.name === "bocchibwaa");
+      let bwaaEmote = obj.items.find(
+        (element) => element.name === "bocchibwaa"
+      );
 
-    message.channel
-      .send(
-        `<${bwaaEmote.animated == true ? "a" : ""}:${bwaaEmote.name}:${
-          bwaaEmote.id
-        }>`
-      )
-      // .then(() => console.log("test"))
-      .catch(console.error);
+      message.channel
+        .send(
+          `<${bwaaEmote.animated == true ? "a" : ""}:${bwaaEmote.name}:${
+            bwaaEmote.id
+          }>`
+        )
+        // .then(() => console.log("test"))
+        .catch(console.error);
+    } else {
+      message.channel
+        .send(
+          "https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi_the_Nibiru.gif?raw=true"
+        )
+        .catch(console.error);
+    }
   } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
-    let obj = await fetch(
-      `https://discord.com/api/v10/applications/${process.env.APP_ID}/emojis`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
-          "Content-Type": "application/json; charset=UTF-8",
-          "User-Agent":
-            "DiscordBot (https://github.com/discord/discord-example-app, 1.0.0)",
-        },
-      }
-    ).then((res) => res.json());
+    if (!fiveBocchis()) {
+      let obj = await getEmojis();
 
-    let randomEmote = obj.items[Math.floor(obj.items.length * Math.random())];
+      let randomEmote = obj.items[Math.floor(obj.items.length * Math.random())];
 
-    message.channel
-      .send(
-        `<${randomEmote.animated == true ? "a" : ""}:${randomEmote.name}:${
-          randomEmote.id
-        }>`
-      )
-      // .then(() => console.log("test"))
-      .catch(console.error);
+      message.channel
+        .send(
+          `<${randomEmote.animated == true ? "a" : ""}:${randomEmote.name}:${
+            randomEmote.id
+          }>`
+        )
+        // .then(() => console.log("test"))
+        .catch(console.error);
+    } else {
+      message.channel
+        .send(
+          "https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi_the_Nibiru.gif?raw=true"
+        )
+        .catch(console.error);
+    }
   }
 });
 
