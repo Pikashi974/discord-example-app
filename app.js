@@ -28,6 +28,30 @@ bot.on("messageCreate", async (message) => {
         "https://github.com/Pikashi974/discord-example-app/blob/main/assets/BocchiWiggle.gif?raw=true"
       )
       .catch(console.error);
+  } else if (message.content.match(/[bB][wW][aA][aA]/gm) != null) {
+    let obj = await fetch(
+      `https://discord.com/api/v10/applications/${process.env.APP_ID}/emojis`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
+          "Content-Type": "application/json; charset=UTF-8",
+          "User-Agent":
+            "DiscordBot (https://github.com/discord/discord-example-app, 1.0.0)",
+        },
+      }
+    ).then((res) => res.json());
+
+    let bwaaEmote = obj.items.find((element) => element.name === "bocchibwaa");
+
+    message.channel
+      .send(
+        `<${bwaaEmote.animated == true ? "a" : ""}:${bwaaEmote.name}:${
+          bwaaEmote.id
+        }>`
+      )
+      // .then(() => console.log("test"))
+      .catch(console.error);
   } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
     let obj = await fetch(
       `https://discord.com/api/v10/applications/${process.env.APP_ID}/emojis`,
