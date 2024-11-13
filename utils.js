@@ -74,6 +74,11 @@ export function fiveBocchis() {
 
     bocchiCounter = 0;
     return true;
+  } else if (
+    (new Date().getTime() - lasthour.getTime()) / (1000 * 60 * 60) >=
+    1
+  ) {
+    bocchiCounter = 1;
   } else {
     lasthour = new Date();
   }
