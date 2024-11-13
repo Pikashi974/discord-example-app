@@ -66,16 +66,8 @@ bot.on("messageCreate", async (message) => {
     }
   } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
     if (!fiveBocchis()) {
-      let obj = await getEmojis();
-
-      let randomEmote = obj.items[Math.floor(obj.items.length * Math.random())];
-
       message.channel
-        .send(
-          `<${randomEmote.animated == true ? "a" : ""}:${randomEmote.name}:${
-            randomEmote.id
-          }>`
-        )
+        .send(`${await getRandomEmoji()}`)
         // .then(() => console.log("test"))
         .catch(console.error);
     } else {
@@ -180,6 +172,14 @@ app.post(
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             content: `[Lore of the server](https://www.youtube.com/watch?v=_QCUnWAzJ3g)`,
+          },
+        });
+      }
+      if (name === "botchi") {
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: `${await getRandomEmoji()}`,
           },
         });
       }

@@ -41,24 +41,14 @@ export async function InstallGlobalCommands(appId, commands) {
 }
 
 // Simple method that returns a random emoji from list
-export function getRandomEmoji() {
-  const emojiList = [
-    "😭",
-    "😄",
-    "😌",
-    "🤓",
-    "😎",
-    "😤",
-    "🤖",
-    "😶‍🌫️",
-    "🌏",
-    "📸",
-    "💿",
-    "👋",
-    "🌊",
-    "✨",
-  ];
-  return emojiList[Math.floor(Math.random() * emojiList.length)];
+export async function getRandomEmoji() {
+  const obj = await getEmojis();
+
+  let randomEmote = obj.items[Math.floor(obj.items.length * Math.random())];
+
+  return `<${randomEmote.animated == true ? "a" : ""}:${randomEmote.name}:${
+    randomEmote.id
+  }>`;
 }
 
 export function capitalize(str) {

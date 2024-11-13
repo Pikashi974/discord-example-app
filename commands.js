@@ -56,6 +56,13 @@ const LORE_COMMAND = {
   integration_types: [0, 1],
   contexts: [0, 1, 2],
 };
+const BOTCHI_COMMAND = {
+  name: "botchi",
+  description: "Any emote from the pool",
+  type: 1,
+  integration_types: [0, 1],
+  contexts: [0, 1, 2],
+};
 
 const ALL_COMMANDS = [
   hello_COMMAND,
@@ -63,6 +70,7 @@ const ALL_COMMANDS = [
   BWAA_COMMAND,
   ROCK_COMMAND,
   LORE_COMMAND,
+  BOTCHI_COMMAND,
 ];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);
