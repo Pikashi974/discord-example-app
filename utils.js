@@ -79,6 +79,7 @@ export function fiveBocchis() {
     1
   ) {
     bocchiCounter = 1;
+    lasthour = new Date();
   } else {
     lasthour = new Date();
   }
