@@ -63,6 +63,13 @@ const BOTCHI_COMMAND = {
   integration_types: [0, 1],
   contexts: [0, 1, 2],
 };
+const PLAYLIST_COMMAND = {
+  name: "playlist",
+  description: "Listen to the best of the Kessoku gang",
+  type: 1,
+  integration_types: [0, 1],
+  contexts: [0, 1, 2],
+};
 
 const ALL_COMMANDS = [
   hello_COMMAND,
@@ -71,6 +78,7 @@ const ALL_COMMANDS = [
   ROCK_COMMAND,
   LORE_COMMAND,
   BOTCHI_COMMAND,
+  PLAYLIST_COMMAND,
 ];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);

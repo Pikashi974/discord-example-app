@@ -183,6 +183,14 @@ app.post(
           },
         });
       }
+      if (name === "playlist") {
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: `https://open.spotify.com/artist/2nvl0N9GwyX69RRBMEZ4OD?si=vXalvPUdQYqiUViQqTxjZA`,
+          },
+        });
+      }
       console.error(`unknown command: ${name}`);
       return res.status(400).json({ error: "unknown command" });
     }
