@@ -36,8 +36,7 @@ bot.on("messageCreate", async (message) => {
       .send(`He-Hello ${message.author.globalName}`)
       // .then(() => console.log("test"))
       .catch(console.error);
-  }
-  if (message.content.match(/[wW][iI][gG][gG][lL][eE]/gm) != null) {
+  } else if (message.content.match(/[wW][iI][gG][gG][lL][eE]/gm) != null) {
     if (!fiveBocchis()) {
       message.channel
         .send(
