@@ -27,6 +27,16 @@ const bot = new Client({
 
 bot.on("messageCreate", async (message) => {
   if (message.author.bot) return;
+
+  if (
+    message.content.match(/[hH][eE][lL]{2}[oO] [bB][oO][cC]{2}[hH][iI]/gm) !=
+    null
+  ) {
+    message.channel
+      .send(`He-Hello ${message.author.globalName}`)
+      // .then(() => console.log("test"))
+      .catch(console.error);
+  }
   if (message.content.match(/[wW][iI][gG][gG][lL][eE]/gm) != null) {
     if (!fiveBocchis()) {
       message.channel
