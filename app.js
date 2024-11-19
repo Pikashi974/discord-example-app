@@ -27,7 +27,18 @@ const bot = new Client({
 
 bot.on("messageCreate", async (message) => {
   if (message.author.bot) return;
+  if (
+    message.content.match(
+      /[eE][xX][pP][lL][oO][dD][eE]|[dD][eE][tT][oO][nN][aA][tT][eE]|[cC][oO][mM][bB][uU][sS][tT]|[rR][aA][pP][iI][dD][ ][nN][uU][cC][lL][eE][aA][rR][ ][fF][iI][sS][sS][iI][oO][nN]/gm
+    )
+  ) {
+    let obj = await getEmojis();
 
+    let pipebombEmote = obj.items.find(
+      (element) => element.name === "bocchithepipebomb"
+    );
+    message.react(`${pipebombEmote}`).catch(console.error);
+  }
   if (
     message.content.match(/[hH][eE][lL]{2}[oO] [bB][oO][cC]{2}[hH][iI]/gm) !=
     null
