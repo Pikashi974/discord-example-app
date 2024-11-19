@@ -37,7 +37,7 @@ bot.on("messageCreate", async (message) => {
     let pipebombEmote = obj.items.find(
       (element) => element.name === "bocchithepipebomb"
     );
-    message.react(`${pipebombEmote}`).catch(console.error);
+    message.react(`${pipebombEmote.id}`).catch(console.error);
   }
   if (
     message.content.match(/[hH][eE][lL]{2}[oO] [bB][oO][cC]{2}[hH][iI]/gm) !=
