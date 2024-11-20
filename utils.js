@@ -54,15 +54,15 @@ export async function getRandomEmoji() {
 export function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
-export function fiveBocchis() {
-  bocchiCounter++;
+export function triggerBocchi(number) {
+  bocchiCounter++; // add part to not increase if 8 then 5
   if (
-    bocchiCounter >= 5 &&
+    bocchiCounter >= number &&
     (new Date().getTime() - lasthour.getTime()) / (1000 * 60 * 60) < 1
   ) {
     lasthour = new Date();
 
-    bocchiCounter = 0;
+    bocchiCounter = 0; // add part to not reset if 5
     return true;
   } else if (
     (new Date().getTime() - lasthour.getTime()) / (1000 * 60 * 60) >=
