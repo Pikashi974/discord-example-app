@@ -12,7 +12,7 @@ import {
   getRandomEmoji,
   DiscordRequest,
   getEmojis,
-  fiveBocchis,
+  triggerBocchi,
 } from "./utils.js";
 import { getShuffledOptions, getResult } from "./game.js";
 
@@ -57,7 +57,7 @@ bot.on("messageCreate", async (message) => {
       // .then(() => console.log("test"))
       .catch(console.error);
   } else if (message.content.match(/[wW][iI][gG][gG][lL][eE]/gm) != null) {
-    if (!fiveBocchis()) {
+    if (!triggerBocchi(5)) {
       message.channel
         .send(
           "https://github.com/Pikashi974/discord-example-app/blob/main/assets/BocchiWiggle.gif?raw=true"
@@ -71,7 +71,7 @@ bot.on("messageCreate", async (message) => {
         .catch(console.error);
     }
   } else if (message.content.match(/[bB][wW][aA][aA]/gm) != null) {
-    if (!fiveBocchis()) {
+    if (!triggerBocchi(5)) {
       let obj = await getEmojis();
 
       let bwaaEmote = obj.items.find(
@@ -94,7 +94,7 @@ bot.on("messageCreate", async (message) => {
         .catch(console.error);
     }
   } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
-    if (!fiveBocchis()) {
+    if (!triggerBocchi(5)) {
       message.channel
         .send(`${await getRandomEmoji()}`)
         // .then(() => console.log("test"))
