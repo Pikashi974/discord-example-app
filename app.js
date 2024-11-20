@@ -34,11 +34,20 @@ bot.on("messageCreate", async (message) => {
   ) {
     let obj = await getEmojis();
 
+    let stareEmote = obj.items.find(
+      (element) => element.name === "BocchiDeathStare"
+    );
+    message.react(`${stareEmote.id}`).catch(console.error);
+  }
+  if (message.content.match(/[hH][eE]'[sS] [cC][oO][mM][iI][nN][gG]/gm)) {
+    let obj = await getEmojis();
+
     let pipebombEmote = obj.items.find(
       (element) => element.name === "bocchithepipebomb"
     );
     message.react(`${pipebombEmote.id}`).catch(console.error);
   }
+
   if (
     message.content.match(/[hH][eE][lL]{2}[oO] [bB][oO][cC]{2}[hH][iI]/gm) !=
     null
