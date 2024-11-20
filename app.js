@@ -39,7 +39,7 @@ bot.on("messageCreate", async (message) => {
     );
     message.react(`${pipebombEmote.id}`).catch(console.error);
   }
-  if (message.content.match(/[hH][eE]'[sS] [cC][oO][mM][iI][nN][gG]/gm)) {
+  if (message.content.match(/[hH][eE]['’][sS] [cC][oO][mM][iI][nN][gG]/gm)) {
     let obj = await getEmojis();
 
     let stareEmote = obj.items.find(
