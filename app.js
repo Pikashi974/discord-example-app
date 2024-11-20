@@ -12,7 +12,7 @@ import {
   getRandomEmoji,
   DiscordRequest,
   getEmojis,
-  triggerBocchi,
+  fiveBocchis,
 } from "./utils.js";
 import { getShuffledOptions, getResult } from "./game.js";
 
@@ -56,36 +56,56 @@ bot.on("messageCreate", async (message) => {
       .send(`He-Hello ${message.author.globalName}`)
       // .then(() => console.log("test"))
       .catch(console.error);
-  } else if (triggerBocchi(5)) {
-    message.channel
-      .send(
-        "https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi_the_Nibiru.gif?raw=true"
-      )
-      .catch(console.error);
   } else if (message.content.match(/[wW][iI][gG][gG][lL][eE]/gm) != null) {
-    message.channel
-      .send(
-        "https://github.com/Pikashi974/discord-example-app/blob/main/assets/BocchiWiggle.gif?raw=true"
-      )
-      .catch(console.error);
+    if (!fiveBocchis()) {
+      message.channel
+        .send(
+          "https://github.com/Pikashi974/discord-example-app/blob/main/assets/BocchiWiggle.gif?raw=true"
+        )
+        .catch(console.error);
+    } else {
+      message.channel
+        .send(
+          "https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi_the_Nibiru.gif?raw=true"
+        )
+        .catch(console.error);
+    }
   } else if (message.content.match(/[bB][wW][aA][aA]/gm) != null) {
-    let obj = await getEmojis();
+    if (!fiveBocchis()) {
+      let obj = await getEmojis();
 
-    let bwaaEmote = obj.items.find((element) => element.name === "bocchibwaa");
+      let bwaaEmote = obj.items.find(
+        (element) => element.name === "bocchibwaa"
+      );
 
-    message.channel
-      .send(
-        `<${bwaaEmote.animated == true ? "a" : ""}:${bwaaEmote.name}:${
-          bwaaEmote.id
-        }>`
-      )
-      // .then(() => console.log("test"))
-      .catch(console.error);
+      message.channel
+        .send(
+          `<${bwaaEmote.animated == true ? "a" : ""}:${bwaaEmote.name}:${
+            bwaaEmote.id
+          }>`
+        )
+        // .then(() => console.log("test"))
+        .catch(console.error);
+    } else {
+      message.channel
+        .send(
+          "https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi_the_Nibiru.gif?raw=true"
+        )
+        .catch(console.error);
+    }
   } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
-    message.channel
-      .send(`${await getRandomEmoji()}`)
-      // .then(() => console.log("test"))
-      .catch(console.error);
+    if (!fiveBocchis()) {
+      message.channel
+        .send(`${await getRandomEmoji()}`)
+        // .then(() => console.log("test"))
+        .catch(console.error);
+    } else {
+      message.channel
+        .send(
+          "https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi_the_Nibiru.gif?raw=true"
+        )
+        .catch(console.error);
+    }
   }
 });
 
