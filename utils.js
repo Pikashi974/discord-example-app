@@ -89,3 +89,15 @@ export async function getEmojis() {
     }
   ).then((res) => res.json());
 }
+export async function eightBall(params) {
+  // console.log(params);
+
+  let questionning = await fetch(
+    `https://eightballapi.com/api${
+      Math.random() < 0.5 ? "/biased" : ""
+    }?question=${params.replaceAll(" ", "+")}&lucky=${Math.random() < 0.5}`
+  ).then((res) => res.json());
+  // console.log(questionning);
+
+  return questionning.reading;
+}

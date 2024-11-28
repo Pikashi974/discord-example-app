@@ -13,6 +13,7 @@ import {
   DiscordRequest,
   getEmojis,
   triggerBocchi,
+  eightBall,
 } from "./utils.js";
 import { getShuffledOptions, getResult } from "./game.js";
 
@@ -217,6 +218,14 @@ app.post(
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             content: `https://open.spotify.com/artist/2nvl0N9GwyX69RRBMEZ4OD?si=vXalvPUdQYqiUViQqTxjZA`,
+          },
+        });
+      }
+      if (name === "8ball") {
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: `${await eightBall(data.options[0].value)}`,
           },
         });
       }

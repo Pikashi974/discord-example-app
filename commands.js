@@ -70,6 +70,22 @@ const PLAYLIST_COMMAND = {
   integration_types: [0, 1],
   contexts: [0, 1, 2],
 };
+const EIGHTBALL_COMMAND = {
+  name: "8ball",
+  description: "Ask Bocchi something",
+  options: [
+    {
+      type: 3,
+      name: "question",
+      description: "What do you want to ask Bocchi?",
+      focused: true,
+      required: true,
+    },
+  ],
+  type: 1,
+  integration_types: [0, 1],
+  contexts: [0, 1, 2],
+};
 
 const ALL_COMMANDS = [
   hello_COMMAND,
@@ -79,6 +95,7 @@ const ALL_COMMANDS = [
   LORE_COMMAND,
   BOTCHI_COMMAND,
   PLAYLIST_COMMAND,
+  EIGHTBALL_COMMAND,
 ];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);
