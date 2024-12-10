@@ -55,7 +55,6 @@ bot.on("messageCreate", async (message) => {
   ) {
     message.channel
       .send(`He-Hello ${message.author.globalName}`)
-      // .then(() => console.log("test"))
       .catch(console.error);
   } else if (message.content.match(/[wW][iI][gG][gG][lL][eE]/gm) != null) {
     if (!triggerBocchi(5)) {
@@ -85,7 +84,6 @@ bot.on("messageCreate", async (message) => {
             bwaaEmote.id
           }>`
         )
-        // .then(() => console.log("test"))
         .catch(console.error);
     } else {
       message.channel
@@ -96,10 +94,7 @@ bot.on("messageCreate", async (message) => {
     }
   } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
     if (!triggerBocchi(5)) {
-      message.channel
-        .send(`${await getRandomEmoji()}`)
-        // .then(() => console.log("test"))
-        .catch(console.error);
+      message.channel.send(`${await getRandomEmoji()}`).catch(console.error);
     } else {
       message.channel
         .send(
@@ -229,6 +224,44 @@ app.post(
           },
         });
       }
+      // "challenge" command
+      if (name === "challenge" && id) {
+        // Interaction context
+        const context = req.body.context;
+        // User ID is in user field for (G)DMs, and member for servers
+        const userId =
+          context === 0 ? req.body.member.user.id : req.body.user.id;
+        // User's object choice
+        const objectName = req.body.data.options[0].value;
+
+        // Create active game using message ID as the game ID
+        activeGames[id] = {
+          id: userId,
+          objectName,
+        };
+
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: `Rock papers scissors challenge from <${userId}>`,
+            components: [
+              {
+                type: MessageComponentTypes.ACTION_ROW,
+                components: [
+                  {
+                    type: MessageComponentTypes.BUTTON,
+                    // Append the game ID to use later on
+                    custom_id: `accept_button_${req.body.id}`,
+                    label: "Accept",
+                    style: ButtonStyleTypes.PRIMARY,
+                  },
+                ],
+              },
+            ],
+          },
+        });
+      }
+
       console.error(`unknown command: ${name}`);
       return res.status(400).json({ error: "unknown command" });
     }
