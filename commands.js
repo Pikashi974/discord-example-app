@@ -105,7 +105,7 @@ const CHALLENGE_COMMAND = {
   contexts: [0, 2],
 };
 const RA_COMMAND = {
-  name: "ra",
+  name: "curse",
   description: "Summon the curse of Ra",
   type: 1,
   integration_types: [0, 1],

@@ -224,7 +224,7 @@ app.post(
           },
         });
       }
-      if (name === "ra") {
+      if (name === "curse") {
         return res.send({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
