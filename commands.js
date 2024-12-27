@@ -104,6 +104,13 @@ const CHALLENGE_COMMAND = {
   integration_types: [0, 1],
   contexts: [0, 2],
 };
+const RA_COMMAND = {
+  name: "ra",
+  description: "Summon the curse of Ra",
+  type: 1,
+  integration_types: [0, 1],
+  contexts: [0, 1, 2],
+};
 
 const ALL_COMMANDS = [
   hello_COMMAND,
@@ -115,6 +122,7 @@ const ALL_COMMANDS = [
   PLAYLIST_COMMAND,
   EIGHTBALL_COMMAND,
   CHALLENGE_COMMAND,
+  RA_COMMAND,
 ];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);
