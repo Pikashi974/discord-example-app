@@ -30,7 +30,7 @@ bot.on("messageCreate", async (message) => {
   if (message.author.bot) return;
   if (
     message.content.match(
-      /[eE][xX][pP][lL][oO][dD][eE]|[dD][eE][tT][oO][nN][aA][tT][eE]|[cC][oO][mM][bB][uU][sS][tT]|[rR][aA][pP][iI][dD][ ][nN][uU][cC][lL][eE][aA][rR][ ][fF][iI][sS][sS][iI][oO][nN]/gm
+      /[eE][xX][pP][lL][oO][dD][eE]|[dD][eE][tT][oO][nN][aA][tT][eE]|[cC][oO][mM][bB][uU][sS][tT]|[rR][aA][pP][iI][dD][  ][nN][uU][cC][lL][eE][aA][rR][  ][fF][iI][sS][sS][iI][oO][nN]|[bB][oO][oO][mM]|[pP][iI][pP][eE][bB][oO][mM][bB]|[sS][pP][aA][rR][kK][lL][eE]/gm
     )
   ) {
     let obj = await getEmojis();
