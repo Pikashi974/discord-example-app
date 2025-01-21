@@ -92,6 +92,20 @@ bot.on("messageCreate", async (message) => {
         )
         .catch(console.error);
     }
+  } else if (
+    message.content.match(/[bB][oO][cC][cC][hH][iI], [^+]+ ?/gm) != null
+  ) {
+    if (!triggerBocchi(5)) {
+      let question = message.content.replace(/[bB][oO][cC][cC][hH][iI], /, "");
+
+      message.channel.send(`${await eightBall(question)}`).catch(console.error);
+    } else {
+      message.channel
+        .send(
+          "https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi_the_Nibiru.gif?raw=true"
+        )
+        .catch(console.error);
+    }
   } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
     if (!triggerBocchi(5)) {
       message.channel.send(`${await getRandomEmoji()}`).catch(console.error);
