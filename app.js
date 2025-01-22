@@ -98,7 +98,9 @@ bot.on("messageCreate", async (message) => {
     null
   ) {
     // if (!triggerBocchi(5)) {
+    let indexBefore = message.content.match("Bocchi")["index"];
     let choice = message.content
+      .slice(indexBefore)
       .replace(/[bB][oO][cC][cC][hH][iI], /, "")
       .replace("?", "")
       .split(" or ");
