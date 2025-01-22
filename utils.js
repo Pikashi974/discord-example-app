@@ -101,3 +101,21 @@ export async function eightBall(params) {
 
   return questionning.reading;
 }
+export function flipCoin(tableChoice) {
+  let table = [];
+  for (let index = 0; index < 5; index++) {
+    table.push(Math.random() < 0.5);
+  }
+  let nbTrue = table.filter((element) => element).length;
+  let outcome = nbTrue > 2 ? tableChoice[0] : tableChoice[1];
+  switch (nbTrue) {
+    case 0:
+    case 5:
+      return `Definitely ${outcome}`;
+    case 1:
+    case 4:
+      return `Most likely ${outcome}`;
+    default:
+      return `Probably ${outcome}`;
+  }
+}
