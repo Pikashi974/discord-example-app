@@ -115,7 +115,7 @@ bot.on("messageCreate", async (message) => {
     // }
     // Bocchi, a or b?
   } else if (
-    message.content.match(/[bB][oO][cC][cC][hH][iI], [^+]+ \?/gm) != null
+    message.content.match(/[bB][oO][cC][cC][hH][iI], [^+]+\?/gm) != null
   ) {
     // if (!triggerBocchi(5)) {
     let question = message.content.replace(/[bB][oO][cC][cC][hH][iI], /, "");
