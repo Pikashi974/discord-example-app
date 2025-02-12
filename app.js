@@ -94,6 +94,30 @@ bot.on("messageCreate", async (message) => {
         .catch(console.error);
     }
   } else if (
+    message.content.match(
+      /([bB][oO][cC][cC][hH][iI][,,][  ][uU][nN][lL][eE][aA][sS][hH][  ][tT][hH][eE][  ][cC][uU][rR][sS][eE][  ][oO][nN][  ])([^\n]+)/gm
+    ) != null
+  ) {
+    // if (!triggerBocchi(5)) {
+    let cursed = message.content.replace(
+      /([bB][oO][cC][cC][hH][iI][,,][  ][uU][nN][lL][eE][aA][sS][hH][  ][tT][hH][eE][  ][cC][uU][rR][sS][eE][  ][oO][nN][  ])/,
+      ""
+    );
+
+    message.channel
+      .send(
+        `${cursed}, I cast on you the most unholy of curses.\nCURSE OF RA 𓀀 𓀁 𓀂 𓀃 𓀄 𓀅 𓀆 𓀇 𓀈 𓀉 𓀊 𓀋 𓀌 𓀍 𓀎 𓀏 𓀐 𓀑 𓀒 𓀓 𓀔 𓀕 𓀖 𓀗 𓀘 𓀙 𓀚 𓀛 𓀜 𓀝 𓀞 𓀟 𓀠 𓀡 𓀢 𓀣 𓀤 𓀥 𓀦 𓀧 𓀨 𓀩 𓀪 𓀫 𓀬 𓀭 𓀲 𓀳 𓀴 𓀵 𓀶 𓀷 𓀸 𓀹 𓀺 𓀻 𓀼 𓀽 𓀾 𓀿 𓁀 𓁁 𓁂 𓁃 𓁄 𓁅 𓁆 𓁇 𓁈 𓁉 𓁊 𓁋 𓁍 𓁎 𓁏 𓁐 𓁑`
+      )
+      .catch(console.error);
+    // } else {
+    //   message.channel
+    //     .send(
+    //       "https://github.com/Pikashi974/discord-example-app/blob/main/assets/Bocchi_the_Nibiru.gif?raw=true"
+    //     )
+    //     .catch(console.error);
+    // }
+    // Bocchi, unleash the curse on someone
+  } else if (
     message.content.match(/[bB][oO][cC][cC][hH][iI], ([^\?]+) or ([^\?]+)/gm) !=
     null
   ) {
@@ -128,7 +152,7 @@ bot.on("messageCreate", async (message) => {
     //     )
     //     .catch(console.error);
     // }
-    // Bocchi, a or b?
+    // Bocchi, question?
   } else if (message.content.match(/[bB][oO][cC][cC][hH][iI]/gm) != null) {
     if (!triggerBocchi(5)) {
       message.channel.send(`${await getRandomEmoji()}`).catch(console.error);
