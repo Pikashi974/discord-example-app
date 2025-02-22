@@ -119,3 +119,10 @@ export function flipCoin(tableChoice) {
       return `Probably ${outcome}`;
   }
 }
+export function likeADragonFlip() {
+  if (Math.random() < 0.5) {
+    return "Like a WHAT";
+  } else {
+    return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/LikeADragon.jpg";
+  }
+}

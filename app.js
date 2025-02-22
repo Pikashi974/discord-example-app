@@ -15,6 +15,7 @@ import {
   triggerBocchi,
   eightBall,
   flipCoin,
+  likeADragonFlip,
 } from "./utils.js";
 import { getShuffledOptions, getResult } from "./game.js";
 
@@ -118,6 +119,12 @@ bot.on("messageCreate", async (message) => {
     // }
     // Bocchi, unleash the curse on someone
   } else if (
+    message.content.match(
+      /[lL][iI][kK][eE][  ][aA][  ][dD][rR][aA][gG][oO][nN]/gm
+    ) != null
+  ) {
+    message.channel.send(`${likeADragonFlip()}`).catch(console.error);
+  } else if (
     message.content.match(/[bB][oO][cC][cC][hH][iI], ([^\?]+) or ([^\?]+)/gm) !=
     null
   ) {
@@ -129,7 +136,7 @@ bot.on("messageCreate", async (message) => {
       .replace("?", "")
       .split(" or ");
 
-    message.channel.send(`${await flipCoin(choice)}`).catch(console.error);
+    message.channel.send(`${flipCoin(choice)}`).catch(console.error);
     // } else {
     //   message.channel
     //     .send(
@@ -349,7 +356,7 @@ app.post(
         // Delete message with token in request body
         const endpoint = `webhooks/${process.env.APP_ID}/${req.body.token}/messages/${req.body.message.id}`;
         try {
-          await res.send({
+          res.send({
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
             data: {
               content: "What is your object of choice?",
@@ -400,7 +407,7 @@ app.post(
 
           try {
             // Send results
-            await res.send({
+            res.send({
               type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
               data: { content: resultStr },
             });
