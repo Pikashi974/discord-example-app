@@ -82,7 +82,7 @@ const RPSChoices = {
     rock: "covers",
   },
   gun: {
-    description: "weapon ishooting bullets",
+    description: "weapon shooting bullets",
     paper: "penetrated",
     scissors: "shot through",
     computer: "obliterated",
