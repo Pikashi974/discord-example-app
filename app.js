@@ -200,7 +200,7 @@ app.post(
   verifyKeyMiddleware(process.env.PUBLIC_KEY),
   async function (req, res) {
     // Interaction type and data
-    const { type, id, data } = req.body;
+    const { type, id, data, guild_id } = req.body;
 
     /**
      * Handle verification requests
@@ -382,6 +382,7 @@ app.post(
         } catch (err) {
           console.error("Error sending message:", err);
         }
+        return;
       } else if (componentId.startsWith("select_choice_")) {
         // get the associated game ID
         const gameId = componentId.replace("select_choice_", "");
@@ -415,7 +416,7 @@ app.post(
             await DiscordRequest(endpoint, {
               method: "PATCH",
               body: {
-                content: "Nice choice " + getRandomEmoji(),
+                content: "Nice choice " + (await getRandomEmoji()),
                 components: [],
               },
             });
@@ -423,6 +424,7 @@ app.post(
             console.error("Error sending message:", err);
           }
         }
+        return;
       }
     }
 
