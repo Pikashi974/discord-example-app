@@ -99,6 +99,12 @@ const CHALLENGE_COMMAND = {
       required: true,
       choices: createCommandChoices(),
     },
+    {
+      type: 6,
+      name: "user",
+      description: "Choose your opponent",
+      required: true,
+    },
   ],
   type: 1,
   integration_types: [0, 1],

@@ -302,11 +302,12 @@ app.post(
       }
       // "challenge" command
       if (name === "challenge" && id) {
+        console.log(req.body.data.options[1]);
+
         // Interaction context
-        const context = req.body.context;
+        // const context = req.body.context;
         // User ID is in user field for (G)DMs, and member for servers
-        const userId =
-          context === 0 ? req.body.member.user.id : req.body.user.id;
+        const userId = req.body.data.options[1].value;
         // User's object choice
         const objectName = req.body.data.options[0].value;
 
@@ -319,7 +320,7 @@ app.post(
         return res.send({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
-            content: `Rock papers scissors challenge from <${userId}>`,
+            content: `Rock papers scissors challenge from <@${userId}>`,
             components: [
               {
                 type: MessageComponentTypes.ACTION_ROW,
