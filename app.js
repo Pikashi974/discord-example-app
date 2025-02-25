@@ -303,9 +303,10 @@ app.post(
       // "challenge" command
       if (name === "challenge" && id) {
         // Interaction context
-        // const context = req.body.context;
+        const context = req.body.context;
         // User ID is in user field for (G)DMs, and member for servers
-        const userId = req.body.data.options[1].value;
+        const userId =
+          context === 0 ? req.body.member.user.id : req.body.user.id;
         // User's object choice
         const objectName = req.body.data.options[0].value;
 
