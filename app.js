@@ -16,6 +16,7 @@ import {
   eightBall,
   flipCoin,
   likeADragonFlip,
+  infiniteFlip,
 } from "./utils.js";
 import { getShuffledOptions, getResult } from "./game.js";
 
