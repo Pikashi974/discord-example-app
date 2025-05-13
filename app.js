@@ -129,11 +129,7 @@ bot.on("messageCreate", async (message) => {
       /[iI][nN][fF][iI][nN][iI][tT][eE][  ][wW][eE][aA][lL][tT][hH]/gm
     ) != null
   ) {
-    message.channel
-      .send(
-        `https://github.com/Pikashi974/discord-example-app/blob/main/assets/infinite_what.png?raw=true`
-      )
-      .catch(console.error);
+    message.channel.send(`${infiniteFlip()}`).catch(console.error);
   } else if (
     message.content.match(/[bB][oO][cC][cC][hH][iI], ([^\?]+) or ([^\?]+)/gm) !=
     null

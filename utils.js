@@ -139,3 +139,12 @@ export function likeADragonFlip() {
       break;
   }
 }
+
+export function infiniteFlip() {
+  let flip = Math.random();
+  if (flip < 0.5) {
+    return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/infinite_what.png?raw=true";
+  } else {
+    return "Infinite WHAT";
+  }
+}
