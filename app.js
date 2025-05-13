@@ -125,6 +125,16 @@ bot.on("messageCreate", async (message) => {
   ) {
     message.channel.send(`${likeADragonFlip()}`).catch(console.error);
   } else if (
+    message.content.match(
+      /[iI][nN][fF][iI][nN][iI][tT][eE][  ][wW][eE][aA][lL][tT][hH]/gm
+    ) != null
+  ) {
+    message.channel
+      .send(
+        `https://github.com/Pikashi974/discord-example-app/blob/main/assets/like-a-dragon-infinite-wealth.gif?raw=true`
+      )
+      .catch(console.error);
+  } else if (
     message.content.match(/[bB][oO][cC][cC][hH][iI], ([^\?]+) or ([^\?]+)/gm) !=
     null
   ) {
