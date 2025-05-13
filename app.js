@@ -131,7 +131,7 @@ bot.on("messageCreate", async (message) => {
   ) {
     message.channel
       .send(
-        `https://github.com/Pikashi974/discord-example-app/blob/main/assets/like-a-dragon-infinite-wealth.gif?raw=true`
+        `https://github.com/Pikashi974/discord-example-app/blob/main/assets/infinite_what.png?raw=true`
       )
       .catch(console.error);
   } else if (
