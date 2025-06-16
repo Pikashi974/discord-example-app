@@ -120,7 +120,7 @@ export function flipCoin(tableChoice) {
   }
 }
 export function likeADragonFlip() {
-  let flip = Math.floor(Math.random() * 4);
+  let flip = Math.floor(Math.random() * 5);
   switch (flip) {
     case 0:
       return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/LikeADragon.jpg?raw=true";
@@ -131,9 +131,9 @@ export function likeADragonFlip() {
     case 2:
       return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/like-a-dragon-infinite-wealth.gif?raw=true";
       break;
-    // case 3:
-    //   return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/like_a_dragon.mp4?raw=true";
-    //   break;
+    case 3:
+      return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/LikeADragonMustache.jpg?raw=true";
+      break;
     default:
       return "Like a WHAT";
       break;
