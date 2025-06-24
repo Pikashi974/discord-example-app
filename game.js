@@ -1,4 +1,5 @@
 import { capitalize } from "./utils.js";
+import { MineSweeper, MineToString } from "./minesweeper.js";
 
 export function getResult(p1, p2) {
   let gameResult;

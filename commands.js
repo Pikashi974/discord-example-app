@@ -117,7 +117,27 @@ const RA_COMMAND = {
   integration_types: [0, 1],
   contexts: [0, 1, 2],
 };
-
+const MINESWEEPER_COMMAND = {
+  name: "minesweeper",
+  description: "Bocchi will mine the field. Try to avoid it.",
+  options: [
+    {
+      type: 4,
+      name: "size",
+      description: "How big is the square?",
+      required: true,
+    },
+    {
+      type: 4,
+      name: "bombs",
+      description: "How many bombs do you want?",
+      required: true,
+    },
+  ],
+  type: 1,
+  integration_types: [0, 1],
+  contexts: [0, 2],
+};
 const ALL_COMMANDS = [
   hello_COMMAND,
   WIGGLE_COMMAND,
@@ -129,6 +149,7 @@ const ALL_COMMANDS = [
   EIGHTBALL_COMMAND,
   CHALLENGE_COMMAND,
   RA_COMMAND,
+  MINESWEEPER_COMMAND,
 ];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);

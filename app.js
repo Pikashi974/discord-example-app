@@ -21,6 +21,7 @@ import {
 import { getShuffledOptions, getResult } from "./game.js";
 
 import { Client, Events, GatewayIntentBits } from "discord.js";
+import { MineSweeper, MineToString } from "./minesweeper.js";
 const bot = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -344,7 +345,26 @@ app.post(
           },
         });
       }
+      if (name === "minesweeper") {
+        let obj = await getEmojis();
 
+        let pipebombEmote = obj.items.find(
+          (element) => element.name === "bocchithepipebomb"
+        );
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: `${MineToString(
+              MineSweeper(data.options[0].value, data.options[1].value)
+            )}`.replaceAll(
+              ":bocchithepipebomb:",
+              `<${pipebombEmote.animated == true ? "a" : ""}:${
+                pipebombEmote.name
+              }:${pipebombEmote.id}>`
+            ),
+          },
+        });
+      }
       console.error(`unknown command: ${name}`);
       return res.status(400).json({ error: "unknown command" });
     }
