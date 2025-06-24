@@ -9,8 +9,14 @@ export function MineSweeper(size, bombs) {
   if (size < 2) {
     return "Size can't be under 2";
   }
+  if (size > 9) {
+    return "Size can't be over 9";
+  }
   if (bombs >= Math.pow(size, 2)) {
     return "Too many bombs for this size";
+  }
+  if (bombs < 0) {
+    return "Negative bomb detected, the board was eaten by a black hole.";
   }
   // We create the square that will serve as minesweeper
   let grid = Array.from({ length: size }, (x, i) =>
