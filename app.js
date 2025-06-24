@@ -354,7 +354,9 @@ app.post(
         return res.send({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
-            content: `${MineToString(
+            content: `# Bocchi the Mystic Minesweeper: ${
+              data.options[1].value
+            } pipebombs\n${MineToString(
               MineSweeper(data.options[0].value, data.options[1].value)
             )}`.replaceAll(
               ":bocchithepipebomb:",
