@@ -103,7 +103,7 @@ export function MineSweeper(size, bombs) {
     }
   });
 
-  if (grid.flat().every(isSmallEnough)) {
+  if (grid.flat().every(isSmallEnough) == false) {
     return "Too many bombs per square. Try another time";
   }
   return grid;
@@ -116,10 +116,10 @@ function isSmallEnough(element, index, array) {
 /**
  *
  * @param {Array} grid
- * @returns
+ * @returns {string}
  */
 export function MineToString(grid) {
-  if (typeof grid == String) {
+  if (typeof grid == "string") {
     return grid;
   }
   let texte = "";
