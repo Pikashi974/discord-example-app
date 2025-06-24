@@ -102,6 +102,12 @@ export function MineSweeper(size, bombs) {
       }
     }
   });
+  function isSmallEnough(element, index, array) {
+    return element <= 10;
+  }
+  if (grid.flat().every(isSmallEnough)) {
+    return "Too many bombs per square. Try another time";
+  }
   return grid;
 }
 
