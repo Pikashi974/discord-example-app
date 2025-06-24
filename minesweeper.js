@@ -7,10 +7,10 @@ export function MineSweeper(size, bombs) {
   // We want the grid to have at least a 2x2 size
 
   if (size < 2) {
-    throw new Error("Size can't be under 2");
+    return "Size can't be under 2";
   }
   if (bombs >= Math.pow(size, 2)) {
-    throw new Error("Too many bombs for this size");
+    return "Too many bombs for this size";
   }
   // We create the square that will serve as minesweeper
   let grid = Array.from({ length: size }, (x, i) =>
@@ -113,6 +113,9 @@ export function MineSweeper(size, bombs) {
  * @returns
  */
 export function MineToString(grid) {
+  if (typeof grid == String) {
+    return grid;
+  }
   let texte = "";
   for (let index = 0; index < grid.length; index++) {
     const element = grid[index];
