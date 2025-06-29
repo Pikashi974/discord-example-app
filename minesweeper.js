@@ -22,15 +22,13 @@ export function MineSweeper(size, bombs) {
   let grid = Array.from({ length: size }, (x, i) =>
     Array.from({ length: size }, (x, i) => 0)
   );
-  let index = 0;
   let positions = [];
   // We place bombs randomly (and try until all are placed)
-  while (index < bombs) {
+  while (positions.length < bombs) {
     let x = Math.floor(Math.random() * size);
     let y = Math.floor(Math.random() * size);
     if (grid[x][y] != -1) {
       grid[x][y] = -1;
-      index += 1;
       // We save the coordinates for the "warning" parts
       positions.push([x, y]);
     }
