@@ -52,8 +52,17 @@ bot.on("messageCreate", async (message) => {
     );
     message.react(`${stareEmote.id}`).catch(console.error);
   }
-
   if (
+    message.content.match(
+      /[hH][iI][tT][  ][iI][tT][,,][  ][bB][oO][cC][cC][hH][iI]/gm
+    ) != null
+  ) {
+    message.channel
+      .send(
+        `m!play https://open.spotify.com/artist/2nvl0N9GwyX69RRBMEZ4OD?si=vXalvPUdQYqiUViQqTxjZA`
+      )
+      .catch(console.error);
+  } else if (
     message.content.match(/[hH][eE][lL]{2}[oO] [bB][oO][cC]{2}[hH][iI]/gm) !=
     null
   ) {
