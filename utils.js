@@ -133,7 +133,7 @@ export function likeADragonFlip() {
     case 4:
       return "I'm tired of this joke";
     case 5:
-      return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/LikeADragonMustache.jpg?raw=true";
+      return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/LikeAWhat.png?raw=true";
     default:
       return "Like a WHAT";
   }
