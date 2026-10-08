@@ -86,7 +86,7 @@ export async function getEmojis() {
         "User-Agent":
           "DiscordBot (https://github.com/discord/discord-example-app, 1.0.0)",
       },
-    }
+    },
   ).then((res) => res.json());
 }
 export async function eightBall(params) {
@@ -95,7 +95,7 @@ export async function eightBall(params) {
   let questionning = await fetch(
     `https://eightballapi.com/api${
       Math.random() < 0.5 ? "/biased" : ""
-    }?question=${params.replaceAll(" ", "+")}&lucky=${Math.random() < 0.5}`
+    }?question=${params.replaceAll(" ", "+")}&lucky=${Math.random() < 0.5}`,
   ).then((res) => res.json());
   // console.log(questionning);
 
@@ -120,7 +120,7 @@ export function flipCoin(tableChoice) {
   }
 }
 export function likeADragonFlip() {
-  let flip = Math.floor(Math.random() * 6);
+  let flip = Math.floor(Math.random() * 7);
   switch (flip) {
     case 0:
       return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/LikeADragon.jpg?raw=true";
@@ -132,6 +132,8 @@ export function likeADragonFlip() {
       return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/LikeADragonMustache.jpg?raw=true";
     case 4:
       return "I'm tired of this joke";
+    case 5:
+      return "https://github.com/Pikashi974/discord-example-app/blob/main/assets/LikeADragonMustache.jpg?raw=true";
     default:
       return "Like a WHAT";
   }
